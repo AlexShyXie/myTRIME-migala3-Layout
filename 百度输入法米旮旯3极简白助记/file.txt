@@ -1,0 +1,120 @@
+卷 Hobbies 的文件夹 PATH 列表
+卷序列号为 C14D-581B
+E:.
+│  demo.png
+│  file.txt
+│  Info.txt
+│  Token.txt
+│  
+│          
+├─port
+│  │  bh.ini
+│  │  cand1.cnd
+│  │  def_26.ini
+│  │  def_9.ini
+│  │  en_26.ini
+│  │  en_26s.ini
+│  │  en_26s_h.ini
+│  │  en_26_h.ini
+│  │  en_9.ini
+│  │  en_9s.ini
+│  │  en_9s_h.ini
+│  │  en_9_h.ini
+│  │  font.json
+│  │  gen.ini
+│  │  hint1.pop
+│  │  hw_full.ini
+│  │  hw_grid.ini
+│  │  num_26.ini
+│  │  num_26_h.ini
+│  │  num_9.ini
+│  │  num_9_h.ini
+│  │  py_26.ini
+│  │  py_9.ini
+│  │  sel_ch.ini
+│  │  sel_ch_h.ini
+│  │  sel_en.ini
+│  │  sel_en_h.ini
+│  │  switchConfig.json
+│  │  symbol.ini
+│  │  symbol_h.ini
+│  │  voice.ini
+│  │  
+│  └─res
+│          anim.ini
+│          default.css
+│          event.ini
+│          
+└─res
+        back1.png
+        back1.til
+        back_anim.png
+        back_anim.til
+        bh.png
+        bh.til
+        bh1.png
+        bh1.til
+        bt.png
+        bt.til
+        cand1.png
+        cand1.til
+        delete.ogg
+        en26.png
+        en26.til
+        en261.png
+        en261.til
+        en26s.png
+        en26s.til
+        en26s1.png
+        en26s1.til
+        en26top.png
+        en26top.til
+        en9.png
+        en9.til
+        en91.png
+        en91.til
+        enter.ogg
+        enter.png
+        enter.til
+        enter1.png
+        enter1.til
+        f31.ogg
+        f8.ogg
+        fore2.png
+        fore2.til
+        fore3.png
+        fore3.til
+        fore4.png
+        fore4.til
+        fore5.png
+        fore5.til
+        fore6.png
+        fore6.til
+        fore7.png
+        fore7.til
+        function.ogg
+        general.ogg
+        hint.png
+        hint.til
+        hw.png
+        hw.til
+        key26-bt.png
+        key26-bt.til
+        land_cand_icon.png
+        land_cand_icon.til
+        list.png
+        list.til
+        list2.png
+        list2.til
+        num26.png
+        num26.til
+        num9.png
+        num9.til
+        space.ogg
+        sym_num.png
+        sym_num.til
+        voice_btn.png
+        voice_btn.til
+        voice_fore.png
+        voice_fore.til
+        

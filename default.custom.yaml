@@ -1,0 +1,24 @@
+customization:
+  distribution_code_name: trime
+  distribution_version: "v3.3.7-0-gac13dd47"
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Tue Dec  2 20:19:01 2025"
+  rime_version: 1.14.0
+patch:
+  "ascii_composer/good_old_caps_lock": true
+  "ascii_composer/switch_key":
+    Caps_Lock: noop
+    Control_L: noop
+    Control_R: noop
+    Shift_L: noop
+    Shift_R: noop
+  "key_binder/bindings":
+    - {accept: bracketleft, send: Page_Up, when: paging}
+    - {accept: bracketright, send: Page_Down, when: has_menu}
+    - {accept: "Shift+space", send: "Shift+space", when: always}
+  schema_list:
+    - {schema: flypy}
+    - {schema: flypydz}
+    - {schema: clover_jiugong}
+    - {schema: migala3}
+  "switcher/hotkeys": false

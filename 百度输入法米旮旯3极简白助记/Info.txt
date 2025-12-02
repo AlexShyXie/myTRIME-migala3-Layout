@@ -1,0 +1,7 @@
+﻿Name=极简白改
+Style=default
+SupportPlatform=A
+SkinFlags=1
+SkinType=1
+Abilities=Animation
+VersionCode=12

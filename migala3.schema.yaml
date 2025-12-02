@@ -1,0 +1,134 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: migala3  # 專有的方案標識
+  name: 米旮旯3
+  version: "0.1"
+  author:
+    - Ennuyeux   loafonwork@outlook.com
+  description: |
+    米旮旯3雙拼方案。
+  dependencies:
+    - stroke
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: 1234567890  
+  delimiter: " '"  # 隔音符號用「'」；第一位的空白用來自動插入到音節邊界處
+  algebra:  # 拼寫運算規則，這個纔是實現雙拼方案的重點。寫法有很多種，當然也可以把四百多個音節碼一條一條地列舉
+    - erase/^xx$/             # 碼表中有幾個拼音不明的字，編碼成xx了，消滅他
+    - xform/^zh/T/            
+    - xform/^ch/D/
+    - xform/^sh/T/
+    - xform/^([aoe].*)$/A$1/  
+    - xform/ei$/Z/           
+    - xform/ian$/W/           
+    - xform/e[rn]$/D/        
+    - xform/iu$/T/
+    - xform/iang$/A/
+    - xform/uang$/G/
+    - xform/[oi]ng$/Y/
+    - xform/uo$/M/
+    - xform/uan$/P/           
+    - xform/iong$/M/
+    - xform/i[ae]$/G/
+    - xform/ua$/W/
+    - xform/eng$/T/
+    - xform/ang$/J/           
+    - xform/an$/J/            
+    - xform/iao$/W/           
+    - xform/ao$/P/
+    - xform/in$/M/
+    - xform/uai$/W/      
+    - xform/ai$/A/
+    - xform/ou$/Y/
+    - xform/un$/T/
+    - xform/[vu]e$/D/
+    - xform/ui$/M/
+    - xform/[vu]$/Z/
+    - xform/[abc]/A/
+    - xform/[def]/D/
+    - xform/[ghir]/G/
+    - xform/[jkl]/J/
+    - xform/[mno]/M/
+    - xform/[pq]/P/
+    - xform/[t]/T/
+    - xform/[wxyz]/W/
+    - xlit/YADGJMPTWZ/1234567890/  # 最後把雙拼碼全部变数字
+
+translator:
+  dictionary: clover           # 这里要填写你的字典名字
+  prism: migala3    # prism 要以本輸入方案的名稱來命名，以免把朙月拼音的拼寫映射表覆蓋掉
+  spelling_hints: 16 # ～字以內候選標註完整帶調拼音
+  enable_sentence: true
+  enable_user_dict: true
+  enable_encoder: true
+  encode_commit_history: true
+  max_phrase_length: 10
+  user_dict: user
+  db_class: tabledb
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+  preedit_format:
+    - xform/([nl])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+    - xform/eh/ê/
+
+
+reverse_lookup:
+  dictionary: stroke
+  enable_completion: true
+  prefix: "`"
+  suffix: "'"
+  tips: 〔筆畫〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - xform/([nl])v/$1ü/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "`[a-z]*'?$"

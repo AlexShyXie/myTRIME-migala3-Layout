@@ -1,0 +1,34 @@
+# 快符
+
+---
+name: flypy.fast.symbols
+version: "10.9.4"
+use_preset_vocabulary: false
+...
+
+：	;
+；	;
+：“	;q
+？	;w
+（	;e
+）	;r
+@	;t
+《	;y
+》	;u
+-	;i
+「」	;o
+『』	;p
+！	;a
+……	;s
+、	;d
+·	;g
+《》	;h
+“”	;j
+（）	;k
+〔〕	;l
+“	;z
+→	;x
+”	;c
+——	;v
+「	;n
+」	;m

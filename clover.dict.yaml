@@ -1,0 +1,8 @@
+
+name: clover
+version: "1"
+sort: by_weight
+
+import_tables:
+  - clover.base
+  - huayu
