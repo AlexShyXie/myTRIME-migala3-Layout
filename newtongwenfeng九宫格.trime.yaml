@@ -470,7 +470,7 @@ preset_keyboards:
     keys:
       #第一行
       - {click: ",", long_click: ":", width: 15}
-      - {click: 1, label: "分词", composing: "'"}
+      - {click: 1, label: "1"}
       - {click: 2, label: abc, key_text_size: 19}
       - {click: 3, label: def, key_text_size: 19}
       - {click: BackSpace, key_back_color: *color8, hilited_key_back_color: *color4}
@@ -482,7 +482,7 @@ preset_keyboards:
       - {click: 5, label: jkl, long_click: select_all, key_text_size: 19}
       - {click: 6, label: mno, long_click: End, key_text_size: 19}
       - {click: Escape, long_click: Menu, key_back_color: *color4, hilited_key_back_color: *color4}
-      - {click: Schema_Eng, long_click: Color_switch, key_back_color: *color4, hilited_key_back_color: *color4, key_text_size: 19}
+      - {click: "'", label: "分词", long_click: Color_switch, key_back_color: *color4, hilited_key_back_color: *color4, key_text_size: 19}
 
       #第三行
       - {click: "?", long_click: "@", width: 15}
