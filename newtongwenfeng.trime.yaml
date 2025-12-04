@@ -1112,11 +1112,11 @@ preset_keyboards:
       - {click: BackSpace, width: 13, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: Keyboard_bqrw, composing: C1, long_click: Theme_settings, swipe_down: Color_switch, swipe_up: Color_switch, width: 12.5, key_text_size: "18", key_back_color: bgn, key_text_color: tgn}
+      - {click: liquid_keyboard_switch, composing: C1, long_click: Theme_settings, swipe_down: Color_switch, swipe_up: Color_switch, swipe_right: liquid_keyboard_switch, width: 12.5, key_back_color: bgn, key_text_color: tgn} 
       - {click: ',', composing: C1, width: 10, label: '，', long_click: '<>{Left}', key_back_color: bh4, key_text_color: th4}
       - {click: space, long_click: Mode_switch, swipe_left: "Left", swipe_right: "Right", swipe_up: Schema_switchcn, width: 30, key_back_color: bkg, key_text_color: tkg}
-      - {click: '.', composing: C2, width: 10, label: '。', long_click: liquid_keyboard_clipboard, key_back_color: bh4, key_text_color: th4}
-      - {click: '/', composing: C2, width: 10, long_click: liquid_keyboard_switch , key_text_size: "18", key_back_color: bh4, key_text_color: th4}
+      - {click: '.', composing: C1, width: 10, label: '。', long_click: liquid_keyboard_clipboard, key_back_color: bh4, key_text_color: th4}
+      - {click: Keyboard_bqrw, composing: C1, width: 10, long_click: liquid_keyboard_switch , key_text_size: "18", key_back_color: bh4, key_text_color: th4}
       - {click: Return, composing: Return1, swipe_up: Escape, width: 15, key_back_color: benter, key_text_color: tenter}
 
   letter:
@@ -4032,7 +4032,7 @@ preset_keys:
   Keyboard_last: { label: 后退, functional: false, send: Eisu_toggle, select: .last }
   Keyboard_last_lock: { label: 返回, send: Eisu_toggle, select: .last_lock } #直接切換到下一键盘
   liquid_keyboard_exit: {label: 返回, send: function, command: liquid_keyboard, option: "-1"}  #退出liquidkeyboard
-  liquid_keyboard_switch: { label: 更多, send: function, command: liquid_keyboard, option: "特殊" }
+  liquid_keyboard_switch: { label: 符号, send: function, command: liquid_keyboard, option: "英文" }
   liquid_keyboard_switch2: { toggle: _liquid_keyboard, send: Mode_switch, states: [ 更多, 更多 ] }
   liquid_keyboard_tabs: { label: 更多, send: function, command: liquid_keyboard, option: "更多" }
   liquid_keyboard_emoji: { label: 🙂, send: function, command: liquid_keyboard, option: "emoji" }
