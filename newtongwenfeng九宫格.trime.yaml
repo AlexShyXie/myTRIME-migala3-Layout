@@ -51,8 +51,8 @@ style:
   latin_font: latin.ttf #西文本体
   keyboard_height: 200 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
   keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
-  keyboard_padding_land_bottom: 40
-  keyboard_padding_bottom: 40
+  keyboard_padding_land_bottom: 60
+  keyboard_padding_bottom: 60
   preview_font: latin.ttf #按键提示字体
   preview_height: 56 #按键提示高度
   preview_offset: -32 #按键提示纵向偏移
@@ -466,39 +466,39 @@ preset_keyboards:
     author: "Uncle光 <467896722@qq.com>"
     # height: 40
     # lock: true
-    width: 17
+    width: 15
     keys:
       #第一行
-      - {click: ",", long_click: ":", width: 15}
+      - {click: ",", long_click: ":"}
       - {click: 1, label: "1"}
       - {click: 2, label: abc, key_text_size: 19}
       - {click: 3, label: def, key_text_size: 19}
-      - {click: BackSpace, key_back_color: *color8, hilited_key_back_color: *color4}
-      - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: *color8, hilited_key_back_color: *color4}
+      - {click: BackSpace, key_back_color: *color8, hilited_key_back_color: *color4, width: 20}
+      - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: *color8, hilited_key_back_color: *color4, width: 20}
 
       #第二行
-      - {click: ".", long_click: "!", width: 15}
+      - {click: ".", long_click: "!"}
       - {click: 4, label: ghi, long_click: Home, key_text_size: 19}
       - {click: 5, label: jkl, long_click: select_all, key_text_size: 19}
       - {click: 6, label: mno, long_click: End, key_text_size: 19}
-      - {click: Escape, long_click: Menu, key_back_color: *color4, hilited_key_back_color: *color4}
-      - {click: "'", label: "分词", long_click: Color_switch, key_back_color: *color4, hilited_key_back_color: *color4, key_text_size: 19}
+      - {click: Escape, long_click: Menu, key_back_color: *color4, hilited_key_back_color: *color4, width: 20}
+      - {click: "'", label: "分词", long_click: Color_switch, key_back_color: *color4, hilited_key_back_color: *color4, key_text_size: 19, width: 20}
 
       #第三行
-      - {click: "?", long_click: "@", width: 15}
+      - {click: "?", long_click: "@"}
       - {click: 7, label: pqrs, long_click: copy, key_text_size: 19}
       - {click: 8, label: tuv, long_click: paste, key_text_size: 19}
       - {click: 9, label: wxyz, long_click: cut, key_text_size: 19}
-      - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: *color8, hilited_key_back_color: *color4}
-      - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: *color8, hilited_key_back_color: *color4}
+      - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: *color8, hilited_key_back_color: *color4, width: 20}
+      - {click: BackSpace, swipe_up: Escape, swipe_down: Delete, swipe_left: Clear, key_back_color: *color8, hilited_key_back_color: *color4, width: 20}
 
       #第四行
-      - {click: Keyboard_number, composing: Escape,long_click: Theme_settings, key_back_color: *color8, hilited_key_back_color: *color4, width: 15}
-      - {click: Keyboard_defaulten, long_click: Menu, key_back_color: *color4, hilited_key_back_color: *color4, key_text_size: 19}
-      - {click: 0, long_click:Theme_settings, swipe_up: Up, swipe_down: Down}
+      - {click: Keyboard_number, long_click: Menu, key_back_color: bgn, key_text_color: tgn}
+      - {click: Keyboard_defaulten, long_click: Theme_settings, key_back_color: *color4, hilited_key_back_color: *color4, key_text_size: 19}
+      - {click: 0, swipe_up: Up, swipe_down: Down}
       - {click: ".", long_click: liquid_keyboard_switch, swipe_left: "(", swipe_right: ")"}
-      - {click: Return, composing: Return1, long_click: Theme_settings, swipe_left: "[", swipe_right: "]"}
-      - {click: Return, composing: Return1, long_click: IME_switch, key_back_color: *color8, hilited_key_back_color: *color6, key_text_color: *color2, hilited_key_text_color: *color2}
+      - {click: Return, composing: Return1, long_click: Settings, swipe_left: "[", swipe_right: "]", width: 20}
+      - {click: Return, composing: Return1, long_click: IME_switch, key_back_color: *color8, hilited_key_back_color: *color6, key_text_color: *color2, hilited_key_text_color: *color2, width: 20}
 
     
   letter:
@@ -3450,8 +3450,8 @@ preset_keys:
   Zdic2: {label: 漢典, send: function, command: run, option: "http://www.zdic.net/sousuo/?q=%2$s"} #搜索網頁: %2$s爲當前輸入的編碼
   WebSearch: {label: 搜索網頁, send: function, command: web_search, option: "%4$s"} #搜索，其他view、dial、edit、search等intent，參考安卓的intent文檔：https://developer.android.com/reference/android/content/Intent.html
   
-  Left1: {label: '⇦', send: Control+Left, repeatable: true, functional: false}
-  Right1: {label: '⇨', send: Control+Right, repeatable: true, functional: false}
+  Left1: {label: '<-', send: Control+Left, repeatable: true, functional: false}
+  Right1: {label: '->', send: Control+Right, repeatable: true, functional: false}
   Shift_L2: {label: 选择, preview: '⇪', functional: false, send: Shift_L}
 
   # 22自定义功能键

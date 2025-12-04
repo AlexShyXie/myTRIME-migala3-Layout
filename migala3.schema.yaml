@@ -86,7 +86,7 @@ speller:
     - xform/[ghir]/G/
     - xform/[jkl]/J/
     - xform/[mno]/M/
-    - xform/[pq]/P/
+    - xform/[pqs]/P/
     - xform/[t]/T/
     - xform/[wxyz]/W/
     - xlit/YADGJMPTWZ/1234567890/  # 最後把雙拼碼全部变数字
