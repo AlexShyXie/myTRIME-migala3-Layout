@@ -53,30 +53,38 @@ engine:
     - reverse_lookup_translator
     - history_translator@history
     - lua_translator@*calculator_translator
+    - lua_translator@*input_statistics     #一个输入统计的脚本，以日、周、月、年等维度的统计
   filters:
     - simplifier
     - simplifier@simplification
     - uniquifier
 
 speller:
-  alphabet: "abcdefghijklmnopqrstuvwxyz;'"
-  initials: ';abcdefghijklmnopqrstuvwxyz'
+  #alphabet: "abcdefghijklmnopqrstuvwxyz;'"
+  #initials: ';abcdefghijklmnopqrstuvwxyz'
+  alphabet: "abcdefghijklmnopqrstuvwxyz;'/"
+  initials: ';abcdefghijklmnopqrstuvwxyz/'
   finals: "'"
   #delimiter: " '"
   max_code_length: 4
   auto_select: true   #顶字上屏
   auto_select_pattern: ^;.$|^\w{4}$
-  auto_clear: max_length #manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
+  auto_clear: 20 #manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
 
 translator:
   dictionary: flypy
   enable_charset_filter: false
   enable_sentence: false
-  enable_completion: false # 编码提示开关
+  enable_completion: true # 编码提示开关
   enable_user_dict: false
   disable_user_dict_for_patterns:
     - "^z.*$"
-
+  spelling_hints: 8  # 添加这个，控制提示长度
+  strict_spelling: true  # 添加这个，严格拼写模式
+  comment_format:
+    - xform|~||            #去掉逐码提示前的~
+    - "xform/^([a-z]{1,3})$/\\1/"
+    
 history:
   input: ;f
   size: 1 #重复前几次上屏
@@ -98,6 +106,8 @@ reverse_lookup:
 key_binder:
   import_preset: default #方案切换相关
   bindings:
+    - {accept: minus, send: Page_Up, when: paging} # [上翻页 好像无效
+    - {accept: plus, send: Page_Down, when: has_menu} # ]下翻页 好像无效
     - {accept: bracketleft, send: Page_Up, when: paging} # [上翻页
     - {accept: bracketright, send: Page_Down, when: has_menu} # ]下翻页
     - {accept: comma, send: comma, when: paging} #注销逗号翻页
@@ -118,12 +128,15 @@ recognizer:
     #uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     uppercase: "" #中文状态大写锁定直接上屏
     reverse_lookup: "[a-z`]*`+[a-z`]*"
-    punct: ""
+    #punct: "
+    punct: '^/([0-9]+|[A-Za-z]+)$'
     expression: "^=.*$"
 
 menu:
-  page_size: 5 #候选项数
+  page_size: 3 #候选项数
 
 style:
-  text_orientation: horizontal
-  candidate_list_layout: linear
+  horizontal: true #横／直排
+  inline_preedit: true #输入码内嵌
+  layout:
+    min_width: 70

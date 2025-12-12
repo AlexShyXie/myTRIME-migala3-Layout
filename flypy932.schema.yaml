@@ -1,0 +1,256 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: flypy932  # 專有的方案標識
+  name: 小鹤三拼九宫格
+  version: "0.17"
+  author:
+    - Ennuyeux <loafonwork@outlook.com>
+  description: |
+    小鹤拼+九宫格。
+  dependencies:
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中, 英 ]
+
+menu:
+  page_size: 9
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - reverse_lookup_translator
+    - lua_translator@date_translator
+    - lua_translator@*calculator_translator
+    - lua_translator@*input_statistics     #一个输入统计的脚本，以日、周、月、年等维度的统计
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: "1234567890'/"
+  initials: '1234567890/'
+  delimiter: " '"  
+  # 隔音符號用「'」；第一位的空白用來自動插入到音節邊界處
+  algebra:  # 拼寫運算規則，這個纔是實現雙拼方案的重點。寫法有很多種，當然也可以把四百多個音節碼一條一條地列舉
+    # 这部分是原版小鹤双拼部分
+    - erase/^xx$/
+    - derive/^([jqxy])u$/$1v/
+    - derive/^([aoe])([ioun])$/$1$1$2/
+    - xform/^([aoe])(ng)?$/$1$1$2/
+    - xform/iu$/Q/
+    - xform/(.)ei$/$1W/
+    - xform/uan$/R/
+    - xform/[uv]e$/T/
+    - xform/un$/Y/
+    - xform/^sh/U/
+    - xform/^ch/I/
+    - xform/^zh/V/
+    - xform/uo$/O/
+    - xform/ie$/P/
+    - xform/i?ong$/S/
+    - xform/ing$|uai$/K/
+    - xform/(.)ai$/$1D/
+    - xform/(.)en$/$1F/
+    - xform/(.)eng$/$1G/
+    - xform/[iu]ang$/L/
+    - xform/(.)ang$/$1H/
+    - xform/ian$/M/
+    - xform/(.)an$/$1J/
+    - xform/(.)ou$/$1Z/
+    - xform/[iu]a$/X/
+    - xform/iao$/N/
+    - xform/(.)ao$/$1C/
+    - xform/ui$/V/
+    - xform/in$/B/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+    
+    #这部分是实现混合三键双键混合输入的关键，不想要就删掉
+    # 九宫格双拼双键部分
+    - derive/[qw]/Q/
+    - derive/[abc]/A/
+    - derive/[def]/D/
+    - derive/[ghi]/G/
+    - derive/[jkl]/J/
+    - derive/[mno]/M/
+    - derive/[prs]/P/
+    - derive/[tuv]/T/
+    - derive/[xyz]/X/
+    #如果不想要双键部分，删到这里就行了
+    
+    # 九宫格双拼三键部分
+    - xform/([qadgjmptx])([qadgjmptx])/$1$2Q/
+    - xform/([qadgjmptx])([wbehknruy])/$1$2A/
+    - xform/([qadgjmptx])([cfilosvz])/$1$2D/
+    - xform/([wbehknruy])([qadgjmptx])/$1$2G/
+    - xform/([wbehknruy])([wbehknruy])/$1$2J/
+    - xform/([wbehknruy])([cfilosvz])/$1$2M/
+    - xform/([cfilosvz])([qadgjmptx])/$1$2P/
+    - xform/([cfilosvz])([wbehknruy])/$1$2T/
+    - xform/([cfilosvz])([cfilosvz])/$1$2X/
+    
+    - xform/[qw]/Q/
+    - xform/[abc]/A/
+    - xform/[def]/D/
+    - xform/[ghi]/G/
+    - xform/[jkl]/J/
+    - xform/[mno]/M/
+    - xform/[prs]/P/
+    - xform/[tuv]/T/
+    - xform/[xyz]/X/
+    
+
+    - xform/[QW]/1/
+    - xform/[ABC]/2/
+    - xform/[DEF]/3/
+    - xform/[GHI]/4/
+    - xform/[JKL]/5/
+    - xform/[MNO]/6/
+    - xform/[PRS]/7/
+    - xform/[TUV]/8/
+    - xform/[XYZ]/9/
+
+translator:
+  dictionary: 8105  #雾淞拼音词库 https://github.com/iDvel/rime-ice cn_dicts
+  prism: flypy932    # prism 要以本輸入方案的名稱來命名，以免把朙月拼音的拼寫映射表覆蓋掉
+  # spelling_hints: 3                 # ～字以内候提示编码
+  enable_sentence: true # 句子输入模式
+  enable_user_dict: true # 是否开启用户词典（用户词典记录动态字词频，用户词）
+  enable_encoder: true # 自动造词
+  encode_commit_history: true # 是否对已上屏的词自动造词
+  max_phrase_length: 6 # 自动生成词的最大长度
+  user_dict: user
+  db_class: tabledb
+  preedit_format:             # 這段代碼用來將輸入的雙拼碼反轉爲全拼顯示；待見雙拼碼的可以把這段拿掉
+    # 转换第一个数字
+    - xform/1(\d)([123])/q$1$2/
+    - xform/1(\d)([456])/w$1$2/
+    - xform/2(\d)([123])/a$1$2/
+    - xform/2(\d)([456])/b$1$2/
+    - xform/2(\d)([789])/c$1$2/
+    - xform/3(\d)([123])/d$1$2/
+    - xform/3(\d)([456])/e$1$2/
+    - xform/3(\d)([789])/f$1$2/
+    - xform/4(\d)([123])/g$1$2/
+    - xform/4(\d)([456])/h$1$2/
+    - xform/4(\d)([789])/i$1$2/
+    - xform/5(\d)([123])/j$1$2/
+    - xform/5(\d)([456])/k$1$2/
+    - xform/5(\d)([789])/l$1$2/
+    - xform/6(\d)([123])/m$1$2/
+    - xform/6(\d)([456])/n$1$2/
+    - xform/6(\d)([789])/o$1$2/
+    - xform/7(\d)([123])/p$1$2/
+    - xform/7(\d)([456])/r$1$2/
+    - xform/7(\d)([789])/s$1$2/
+    - xform/8(\d)([123])/t$1$2/
+    - xform/8(\d)([456])/u$1$2/
+    - xform/8(\d)([789])/v$1$2/
+    - xform/9(\d)([123])/x$1$2/
+    - xform/9(\d)([456])/y$1$2/
+    - xform/9(\d)([789])/z$1$2/
+
+    #转换第二个数字
+    - xform/(\w)1([147])/$1q$2/
+    - xform/(\w)1([258])/$1w$2/
+    - xform/(\w)2([147])/$1a$2/
+    - xform/(\w)2([258])/$1b$2/
+    - xform/(\w)2([369])/$1c$2/
+    - xform/(\w)3([147])/$1d$2/
+    - xform/(\w)3([258])/$1e$2/
+    - xform/(\w)3([369])/$1f$2/
+    - xform/(\w)4([147])/$1g$2/
+    - xform/(\w)4([258])/$1h$2/
+    - xform/(\w)4([369])/$1i$2/
+    - xform/(\w)5([147])/$1j$2/
+    - xform/(\w)5([258])/$1k$2/
+    - xform/(\w)5([369])/$1l$2/
+    - xform/(\w)6([147])/$1m$2/
+    - xform/(\w)6([258])/$1n$2/
+    - xform/(\w)6([369])/$1o$2/
+    - xform/(\w)7([147])/$1p$2/
+    - xform/(\w)7([258])/$1r$2/
+    - xform/(\w)7([369])/$1s$2/
+    - xform/(\w)8([147])/$1t$2/
+    - xform/(\w)8([258])/$1u$2/
+    - xform/(\w)8([369])/$1v$2/
+    - xform/(\w)9([147])/$1x$2/
+    - xform/(\w)9([258])/$1y$2/
+    - xform/(\w)9([369])/$1z$2/
+
+    # 删除第三个数字
+    - xform/(\w)(\w)(\d)/$1$2/
+    
+    # 双拼转全拼
+    - xform/([bpmfdtnljqx])n/$1iao/
+    - xform/(\w)g/$1eng/
+    - xform/(\w)q/$1iu/
+    - xform/(\w)w/$1ei/
+    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
+    - xform/(\w)t/$1ve/
+    - xform/(\w)y/$1un/
+    - xform/([dtnlgkhvuirzcs])o/$1uo/
+    - xform/(\w)p/$1ie/
+    - xform/([jqx])s/$1iong/
+    - xform/(\w)s/$1ong/
+    - xform/(\w)d/$1ai/
+    - xform/(\w)f/$1en/
+    - xform/(\w)h/$1ang/
+    - xform/(\w)j/$1an/
+    - xform/([gkhvuirzcs])k/$1uai/
+    - xform/(\w)k/$1ing/
+    - xform/([jqxnl])l/$1iang/
+    - xform/(\w)l/$1uang/
+    - xform/(\w)z/$1ou/
+    - xform/([gkhvuirzcs])x/$1ua/
+    - xform/(\w)x/$1ia/
+    - xform/(\w)c/$1ao/
+    - xform/([dtgkhvuirzcs])v/$1ui/
+    - xform/(\w)b/$1in/
+    - xform/(\w)m/$1ian/
+    - xform/([aoe])\1(\w)/$1$2/
+    - "xform/(^|[ '])v/$1zh/"
+    - "xform/(^|[ '])i/$1ch/"
+    - "xform/(^|[ '])u/$1sh/"
+    - xform/([jqxy])v/$1u/
+    - xform/([nl])v/$1ü/
+
+ascii_composer:
+  import_preset: default
+  switch_key:
+    
+
+simplifier:
+  option_name: Homepage
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "[a-z`]*`+[a-z`]*"
+    punct: '^/([0-9]+|[A-Za-z]+)$'
+    expression: "^=.*$"

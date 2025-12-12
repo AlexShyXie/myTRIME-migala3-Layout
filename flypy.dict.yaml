@@ -7,7 +7,9 @@ import_tables:
   - 'flypy/flypy.user.top'                # 用户置顶词
   - 'flypy/flypy.full.top'                # 全码置顶词
   - 'flypy/flypy.fast.symbols'            # 快符
-  - 'flypy/flypy.primary'                 # 首选字词
+  #- 'flypy/flypy.primary.single_chars'          # 将原来的primary字典拆分成单字和非单字的两个库
+  #- 'flypy/flypy.primary.no_single_chars'          # 将原来的primary字典拆分成单字和非单字的两个库 
+  - 'flypy/flypy.primary.weighted'                 # 首选字词
   - 'flypy/flypy.secondary'               # 次选字词
   - 'flypy/flypy.three'                   # 三码填空
   - 'flypy/flypy.web'                     # 网站
@@ -16,7 +18,7 @@ import_tables:
   - 'flypy/flypy.wechat'                  # 微信表情
   - 'flypy/flypy.secondary.short.code'    # 二重简码
   - 'flypy/flypy.whimsicality'            # 随心所欲
-  # - 'flypy/flypy.full.char'              # 全码字
+  - 'flypy/flypy.full.char'              # 全码字
   - 'flypy/flypy.full'                   # 全码词
   - 'flypy/flypy.user'                   # 用户词库
 ...
