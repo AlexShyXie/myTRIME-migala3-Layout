@@ -275,7 +275,7 @@ liquid_keyboard:
     type: HISTORY
   emoji:
     type: SINGLE
-    keys: "🙂😂🤣😆🙃😅🥺😎👀🙈🙉🙊☹😑😄🤐😨😱🌚🌝🤔❤💔🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
+    keys: "🙂😂🤣😆🙃😅🥺😎👀🤔😑😄🤐😨😱🌚🌝❤💔🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠🙈🙉🙊☹☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
   emoji_full:
     type: SINGLE
     name: 全emoji
@@ -458,7 +458,7 @@ tool_bar:
     action: Keyboard_default
 
   # 右侧按钮列表（从右向左排列）
-  buttons: [ *hide_button, *full_shape_button, *ascii_mode_button, *clipboard_button, *emoji_button, *edit_button, *switchCn_button]
+  buttons: [ *hide_button, *switchCn_button, *full_shape_button, *ascii_mode_button, *clipboard_button, *emoji_button, *edit_button]
   
 #键盘布局
 preset_keyboards:
@@ -492,7 +492,7 @@ preset_keyboards:
       - {click: 8, label: tuv, long_click: paste, key_text_size: 19}
       - {click: 9, label: xyz, long_click: cut, key_text_size: 19}
       - {click: Return, composing: Return1, long_click: Settings, swipe_left: "[", swipe_right: "]", width: 22}
-      - {click: Return, composing: Return1, long_click: IME_switch, key_back_color: *color8, hilited_key_back_color: *color6, key_text_color: *color2, hilited_key_text_color: *color2, width: 22}
+      - {click: '`',label: "反查", long_click: IME_switch, key_back_color: *color8, hilited_key_back_color: *color6, key_text_color: *color2, hilited_key_text_color: *color2, width: 22}
 
       #第四行
       - {click: Keyboard_number, long_click: Menu, key_back_color: bgn, key_text_color: tgn}
@@ -513,7 +513,7 @@ preset_keyboards:
   letter:
     author: "暖暖"
     name: 26键默认布局2
-    width: 10
+    width: 9
   #  height: 48
     ascii_mode: 1
     keys:
@@ -521,41 +521,41 @@ preset_keyboards:
       - {click: w, long_click: 2, key_back_color: bh1, key_text_color: th1}
       - {click: e, long_click: 3, key_back_color: bh1, key_text_color: th1}
       - {click: r, long_click: 4, key_back_color: bh1, key_text_color: th1}
-      - {click: t, long_click: 5, key_back_color: bh1, key_text_color: th1}
-      - {click: y, long_click: 6, key_back_color: bh1, key_text_color: th1}
+      - {click: t, long_click: 5, width: 14, key_back_color: bh1, key_text_color: th1}
+      - {click: y, long_click: 6, width: 14, key_back_color: bh1, key_text_color: th1}
       - {click: u, long_click: 7, key_back_color: bh1, key_text_color: th1}
       - {click: i, long_click: 8, key_back_color: bh1, key_text_color: th1}
       - {click: o, long_click: 9, key_back_color: bh1, key_text_color: th1}
       - {click: p, long_click: 0, key_back_color: bh1, key_text_color: th1}
 
-      - {width: 5, key_back_color: bh2, key_text_color: th2}
+      - {width: 2, key_back_color: bh2, key_text_color: th2}
       - {click: a, long_click: select_all, key_back_color: bh2, key_text_color: th2}
       - {click: s, long_click: '@', key_back_color: bh2, key_text_color: th2}
       - {click: d, long_click: '#', key_back_color: bh2, key_text_color: th2}
       - {click: f, long_click: '$', key_back_color: bh2, key_text_color: th2}
-      - {click: g, long_click: '%', swipe_down: "date_time", key_back_color: bh2, key_text_color: th2}
+      - {click: g, long_click: '%',width: 24, swipe_down: "date_time", key_back_color: bh2, key_text_color: th2}
       - {click: h, long_click: '!', swipe_down: "+", key_back_color: bh2, key_text_color: th2}
       - {click: j, long_click: '&', swipe_down: "-", key_back_color: bh2, key_text_color: th2}
       - {click: k, long_click: '*', swipe_down: "_", key_back_color: bh2, key_text_color: th2}
       - {click: l, long_click: '(){Left}', swipe_down: "=", key_back_color: bh2, key_text_color: th2}
-      - {width: 5, key_back_color: bh2, key_text_color: th2}
+      - {width: 2, key_back_color: bh2, key_text_color: th2}
 
-      - {click: Shift_L, composing: delimiter, width: 15, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
+      - {click: Shift_L, composing: delimiter, width: 13, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
       - {click: z, long_click: '`', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
       - {click: x, long_click: cut, swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
       - {click: c, long_click: copy, swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
-      - {click: v, long_click: paste_clip, swipe_down: paste, key_back_color: bh3, key_text_color: th3}
+      - {click: v, long_click: paste_clip, width: 20, swipe_down: paste, key_back_color: bh3, key_text_color: th3}
       - {click: b, long_click: ";", swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
       - {click: n, long_click: ":", key_back_color: bh3, key_text_color: th3}
       - {click: m, long_click: '?', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
-      - {click: BackSpace, width: 15, key_back_color: bbs, key_text_color: tbs}
+      - {click: BackSpace, width: 13, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
-      - {click: Keyboard_bqrw, long_click: Theme_settings, width: 12.5, key_text_size: "18", key_back_color: bgn, key_text_color: tgn}
-      - {click: ',', label: '，', long_click: '<>{Left}', key_back_color: bh4, key_text_color: th4}
+      - {click: space_R2, long_click: Theme_settings, width: 12.5, key_text_size: "18", key_back_color: bgn, key_text_color: tgn}
+      - {click: ',', label: '，', width: 10, long_click: '<>{Left}', key_back_color: bh4, key_text_color: th4}
       - {label: '空格', click: space, long_click: space_R2, swipe_left: "Left", swipe_right: "Right", swipe_up: Keyboard_default, swipe_down: Keyboard_default, width: 30, key_back_color: bkg, key_text_color: tkg}
-      - {click: '.', label: '。', long_click: Keyboard_kao, key_back_color: bh4, key_text_color: th4}
-      - {click: space_R2, long_click: liquid_keyboard_switch, key_text_size: "18", key_back_color: bh4, key_text_color: th4}
+      - {click: '.', label: '。', width: 10, long_click: Keyboard_kao, key_back_color: bh4, key_text_color: th4}
+      - {click: Keyboard_bqrw, long_click: liquid_keyboard_switch, key_text_size: "18", width: 10, key_back_color: bh4, key_text_color: th4}
       - {click: Return, composing: Return1, swipe_up: Escape, width: 15, key_back_color: benter, key_text_color: tenter}
 
   number:
@@ -3307,7 +3307,7 @@ preset_keyboards:
     - {label: "'分词", click: Keyboard_number, long_click: Keyboard_fbjzj, composing: Keyboard_fc, ascii: '.',  swipe_down: Shift_L, width: 15.5, key_back_color: bgn, key_text_color: tgn}
     - {label: '一', click: Keyboard_bqrw, long_click: Theme_settings, composing: Keyboard_k, ascii: 'k', combo: k, width: 11.5, key_text_size: "18", key_back_color: bgn, key_text_color: tgn}
     - {label: '✾', click: Keyboard_v2, long_click: VOICE_ASSIST, composing: Keyboard_v, ascii: 'v', width: 11.5, key_back_color: bh4, key_text_color: th4}
-    - {label: '______', click: space1, long_click: space_R, swipe_up: Keyboard_defaulten, width: 23, round_corner: *round1, key_back_color: bkg, key_text_color: tkg}
+    - {label: '空格', click: space1, long_click: space_R, swipe_up: Keyboard_defaulten, width: 23, round_corner: *round1, key_back_color: bkg, key_text_color: tkg}
     - {label: '丿', click: Keyboard_r2, long_click: Tab, composing: Keyboard_h, ascii: 'h', combo: h, width: 11.5, key_text_size: "19", key_back_color: bh4, key_text_color: th4}
     - {label: '丶', click: space_R1, long_click: Zcj, composing: Keyboard_r, ascii: 'r', combo: r, width: 11.5, key_text_size: "18", key_back_color: bgn, key_text_color: tgn}
     - {label: 'Enter', long_click: Return, click: Return, swipe_up: Escape, composing: Keyboard_e0, width: 15.5, round_corner: *round3, key_back_color: benter, key_text_color: tenter}
@@ -3348,7 +3348,7 @@ preset_keyboards:
     - {label: "'分词", click: Keyboard_number, long_click: Keyboard_fbj, composing: Keyboard_fc, ascii: '.', width: 15.5, key_back_color: bgn, key_text_color: tgn}
     - {label: '一', click: Keyboard_bqrw, long_click: Theme_settings, composing: Keyboard_k, ascii: 'k', combo: k, width: 11.5, key_text_size: "18", key_back_color: bgn, key_text_color: tgn}
     - {label: '✾', click: Keyboard_v2, long_click: VOICE_ASSIST, composing: Keyboard_v, ascii: 'v', width: 11.5, key_back_color: bh4, key_text_color: th4}
-    - {label: '______', click: space1, long_click: space_R, swipe_up: Keyboard_defaulten, round_corner: *round1, width: 23, key_back_color: bkg, key_text_color: tkg}
+    - {label: '空格', click: space1, long_click: space_R, swipe_up: Keyboard_defaulten, round_corner: *round1, width: 23, key_back_color: bkg, key_text_color: tkg}
     - {label: '丿', click: Keyboard_r2, long_click: Tab, composing: Keyboard_h, ascii: 'h', combo: h, width: 11.5, key_back_color: bh4, key_text_color: th4}
     - {label: '丶', click: space_R1, long_click: Zcj, composing: Keyboard_r, ascii: 'r', combo: r, width: 11.5, key_text_size: "18", key_back_color: bgn, key_text_color: tgn}
     - {label: 'Enter', long_click: Return, click: Return, swipe_up: Escape, composing: Keyboard_e0, width: 15.5, round_corner: *round3, key_back_color: benter, key_text_color: tenter}
@@ -3380,7 +3380,7 @@ preset_keys:
   Return2: {label: 回车, send: Return }
   Hide: {label: 隐藏, send: BACK}
   BackSpace: {label: '⇦', preview: '⇦', repeatable: true, functional: false, send: BackSpace}
-  space: {repeatable: false, preview: ' ', functional: false, label: '_______', send: space}
+  space: {repeatable: false, preview: ' ', functional: false, label: '空格', send: space}
   space1: {repeatable: false, label: '空格', functional: false, send: space}
   Clear: {label: 全清, send: Clear}
   Escape: {label: 取消, functional: false, send: Escape}

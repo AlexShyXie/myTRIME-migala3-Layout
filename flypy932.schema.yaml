@@ -3,7 +3,7 @@
 
 schema:
   schema_id: flypy932  # 專有的方案標識
-  name: 小鹤三拼九宫格
+  name: 小鹤双拼九宫格
   version: "0.17"
   author:
     - Ennuyeux <loafonwork@outlook.com>
@@ -36,9 +36,9 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
+    - reverse_lookup_translator
     - punct_translator
     - script_translator
-    - reverse_lookup_translator
     - lua_translator@date_translator
     - lua_translator@*calculator_translator
     - lua_translator@*input_statistics     #一个输入统计的脚本，以日、周、月、年等维度的统计
@@ -52,6 +52,12 @@ speller:
   delimiter: " '"  
   # 隔音符號用「'」；第一位的空白用來自動插入到音節邊界處
   algebra:  # 拼寫運算規則，這個纔是實現雙拼方案的重點。寫法有很多種，當然也可以把四百多個音節碼一條一條地列舉
+    # 万象词库迁移
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
+    - xform/^ng$/eng/
+    - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
+    - xform/ḿ/m/ 
     # 这部分是原版小鹤双拼部分
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
@@ -130,7 +136,7 @@ speller:
     - xform/[XYZ]/9/
 
 translator:
-  dictionary: 8105  #雾淞拼音词库 https://github.com/iDvel/rime-ice cn_dicts
+  dictionary: wanxiang  #雾淞拼音词库 https://github.com/iDvel/rime-ice cn_dicts
   prism: flypy932    # prism 要以本輸入方案的名稱來命名，以免把朙月拼音的拼寫映射表覆蓋掉
   # spelling_hints: 3                 # ～字以内候提示编码
   enable_sentence: true # 句子输入模式
@@ -247,10 +253,29 @@ punctuator:
 
 key_binder:
   import_preset: default
-
+  
+reverse_lookup:
+  dictionary: flypydzfor932
+  comment_format:
+    # - xform/^/〔/
+    # - xform/$/〕/
+    - xform/ / /
+    
 recognizer:
   import_preset: default
   patterns:
     reverse_lookup: "[a-z`]*`+[a-z`]*"
     punct: '^/([0-9]+|[A-Za-z]+)$'
     expression: "^=.*$"
+
+__include: octagram   #启用语言模型
+#语言模型
+octagram:
+  __patch:
+    grammar:
+      language: amz-v2n3m1-zh-hans  
+      collocation_max_length: 5
+      collocation_min_length: 2
+    translator/contextual_suggestions: true
+    translator/max_homophones: 7
+    translator/max_homographs: 7

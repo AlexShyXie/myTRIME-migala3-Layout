@@ -51,8 +51,8 @@ style:
   latin_font: latin.ttf #西文本体
   keyboard_height: 200 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
   keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
-  keyboard_padding_land_bottom: 40
-  keyboard_padding_bottom: 40
+  keyboard_padding_land_bottom: 65
+  keyboard_padding_bottom: 65
   preview_font: latin.ttf #按键提示字体
   preview_height: 56 #按键提示高度
   preview_offset: -32 #按键提示纵向偏移

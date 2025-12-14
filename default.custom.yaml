@@ -2,11 +2,9 @@ customization:
   distribution_code_name: trime
   distribution_version: "v3.3.7-0-gac13dd47"
   generator: "Rime::SwitcherSettings"
-  modified_time: "Sat Dec  6 16:39:05 2025"
+  modified_time: "Thu Dec 11 23:17:27 2025"
   rime_version: 1.14.0
 patch:
   schema_list:
     - {schema: flypy}
-    - {schema: flypydz}
     - {schema: flypy932}
-    - {schema: migala3}
