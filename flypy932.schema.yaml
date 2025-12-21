@@ -43,8 +43,10 @@ engine:
     - lua_translator@*calculator_translator
     - lua_translator@*input_statistics     #一个输入统计的脚本，以日、周、月、年等维度的统计
   filters:
+    - lua_filter@*snow.fix
     - simplifier
     - uniquifier
+
 
 speller:
   alphabet: "1234567890'/"
@@ -243,8 +245,8 @@ translator:
 ascii_composer:
   import_preset: default
   switch_key:
-    
 
+  
 simplifier:
   option_name: Homepage
 
