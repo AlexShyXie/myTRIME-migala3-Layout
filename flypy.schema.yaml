@@ -13,7 +13,8 @@ schema:
     - flypydz
 
 punctuator:
-  import_preset: default
+  digit_separators: ":,."  #数字分隔符
+  __include: wanxiang_symbols:/symbol_table         # 从 symbols.yaml 导入配置
 
 switches:
   - name: ascii_mode
@@ -31,6 +32,7 @@ switches:
 engine:
   processors:
     - ascii_composer
+    # - chord_composer 并击的
     - recognizer
     - key_binder
     - speller
@@ -59,6 +61,7 @@ engine:
     - simplifier@simplification
     - uniquifier
 
+  
 speller:
   #alphabet: "abcdefghijklmnopqrstuvwxyz;'"
   #initials: ';abcdefghijklmnopqrstuvwxyz'

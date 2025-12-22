@@ -10,6 +10,7 @@ schema:
   description: |
     小鹤拼+九宫格。
   dependencies:
+    flypydzfor932
 
 switches:
   - name: ascii_mode
@@ -245,8 +246,8 @@ translator:
 ascii_composer:
   import_preset: default
   switch_key:
+    
 
-  
 simplifier:
   option_name: Homepage
 
