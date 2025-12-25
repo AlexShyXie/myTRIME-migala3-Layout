@@ -51,8 +51,8 @@ style:
   latin_font: latin.ttf #西文本体
   keyboard_height: 200 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
   keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
-  keyboard_padding_land_bottom: 65
-  keyboard_padding_bottom: 65
+  keyboard_padding_land_bottom: 75
+  keyboard_padding_bottom: 75
   preview_font: latin.ttf #按键提示字体
   preview_height: 56 #按键提示高度
   preview_offset: -32 #按键提示纵向偏移
@@ -275,7 +275,7 @@ liquid_keyboard:
     type: HISTORY
   emoji:
     type: SINGLE
-    keys: "🙂😂🤣😆🙃😅🥺😎👀🤔😑😄🤐😨😱🌚🌝❤💔🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠🙈🙉🙊☹☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
+    keys: "🙂😂🤣😆🙃🤔😅🥺😎👀😑😄🤐😨😱🌚🌝❤💔🌹💣👌👍😣😥😮🙄😏😕😯😪😫😴😌🤑😉😋😎😍😘😚😛😜😝😒😓😔😲😷🤒😇🤓🤗🤕🙁😖😞😟😤😢😭😦😧😨😩😬😰😳😵😡😠🙈🙉🙊☹☝✌🖕👎🙏🤘👏💪💋☘🍀🌸☕🍵🍺🍻🍦🍬🍚🍜🍲🍖🎂💤"
   emoji_full:
     type: SINGLE
     name: 全emoji
@@ -475,8 +475,8 @@ preset_keyboards:
       - {click: 1, label: qw,  long_click: '“”{Left}', label_symbol: '""', key_text_size: 20}
       - {click: 2, label: abc, long_click: '(){Left}', swipe_up = Menu, key_text_size: 19}
       - {click: 3, label: def, swipe_up = Menu, key_text_size: 19}
-      - {click: BackSpace, swipe_up: Escape, label_symbol: 'Esc',swipe_down: Delete, hint: 'del', key_back_color: bgn, hilited_key_back_color: *color4, width: 22, label_color: *color1,key_text_color:*color1, key_symbol_color:*color1,comment_text_color:*color1} #key_text_color key_symbol_color label_color
-      - {click: Escape, long_click: Menu, key_back_color: *color4, hilited_key_back_color: *color4, width: 22}
+      - {click: BackSpace, swipe_up: Delete, label_symbol: 'del',swipe_down: Escape, hint: 'Esc', key_back_color: bgn, hilited_key_back_color: *color4, width: 22, label_color: *color1,key_text_color:*color1, key_symbol_color:*color1,comment_text_color:*color1} #key_text_color key_symbol_color label_color
+      - {click: "'", label: "分词", long_click: Color_switch, key_back_color: *color4, hilited_key_back_color: *color4, width: 22}
 
       #第二行
       - {click: ".", long_click: '*', swipe_up: "/", label_symbol: "* /"}
@@ -484,7 +484,7 @@ preset_keyboards:
       - {click: 5, label: jkl, long_click: select_all, key_text_size: 19}
       - {click: 6, label: mno, long_click: End, key_text_size: 19}
       - {click: x1, long_click: x4,swipe_up: x4, swipe_down: Rightx2, hint: '下划→x2', swipe_left: Clear, key_back_color: bgn, hilited_key_back_color: *color4, label_color: *color1,key_text_color:*color1, key_symbol_color:*color1,comment_text_color:*color1, width: 22}
-      - {click: "'", label: "分词", long_click: Color_switch, key_back_color: *color4, hilited_key_back_color: *color4, key_text_size: 19, width: 22}
+      - {click: Escape, long_click: Menu, key_back_color: *color4, hilited_key_back_color: *color4, width: 22}
 
       #第三行
       - {click: "?", long_click: '=', swipe_up: '!', swipe_left: '#', swipe_right: '@', label_symbol: "=!@#", key_text_size: 16}
@@ -573,18 +573,18 @@ preset_keyboards:
       - {click: '+', long_click: '#', key_back_color: bgn, key_text_color: tgn, width: 22}
 
 
-      - {click: '_', long_click: '[]{Left}', key_back_color: bgn, key_text_color: tgn}
+      - {click: '-', long_click: '[]{Left}', key_back_color: bgn, key_text_color: tgn}
       - {click: 4}
       - {click: 5}
       - {click: 6}
       - {label: EN, click: Keyboard_defaulten, key_back_color: bgn, key_text_color: tgn, width: 22}
-      - {click: '-', long_click: '%', key_back_color: bgn, key_text_color: tgn, width: 22}
+      - {click: '_', long_click: '%', key_back_color: bgn, key_text_color: tgn, width: 22}
 
       - {click: '(){Left}', long_click: '@', key_back_color: bgn, key_text_color: tgn}
       - {click: 7, long_click: select_all}
       - {click: 8, long_click: copy}
       - {click: 9, long_click: paste_clip, swipe_down: paste}
-      - {click: space1, key_back_color: bgn, key_text_color: tgn, width: 22}
+      - {click: Return, long_click: Menu, key_back_color: benter, key_text_color: tenter, width: 22}
       - {click: '*', long_click: '±', key_back_color: bgn, key_text_color: tgn, width: 22}
 
 
@@ -592,7 +592,7 @@ preset_keyboards:
       - {click: ., long_click: Keyboard_bqrw, key_back_color: bgn, key_text_color: tgn}
       - {click: 0, long_click: cut}
       - {click: '=', long_click: '≠', key_back_color: bgn, key_text_color: tgn}
-      - {click: Return, long_click: Menu, key_back_color: benter, key_text_color: tenter, width: 22}
+      - {click: space1, key_back_color: bgn, key_text_color: tgn, width: 22}
       - {click: '/', long_click: '\', key_back_color: bgn, key_text_color: tgn, width: 22}
 
       

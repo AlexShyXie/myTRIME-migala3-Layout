@@ -253,6 +253,7 @@ simplifier:
 
 punctuator:
   import_preset: default
+  digit_separators: ""
 
 key_binder:
   import_preset: default
