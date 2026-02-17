@@ -10,7 +10,7 @@ schema:
   description: |
     小鹤拼+九宫格。
   dependencies:
-    flypydzfor932
+    - flypydzfor932
 
 switches:
   - name: ascii_mode
@@ -18,7 +18,7 @@ switches:
     states: [ 中, 英 ]
 
 menu:
-  page_size: 9
+  page_size: 500
 
 engine:
   processors:
@@ -148,7 +148,7 @@ translator:
   encode_commit_history: true # 是否对已上屏的词自动造词
   max_phrase_length: 6 # 自动生成词的最大长度
   user_dict: user
-  db_class: tabledb
+  # db_class: tabledb
   preedit_format:             # 這段代碼用來將輸入的雙拼碼反轉爲全拼顯示；待見雙拼碼的可以把這段拿掉
     # 转换第一个数字
     - xform/1(\d)([123])/q$1$2/

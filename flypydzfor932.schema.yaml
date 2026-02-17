@@ -1,0 +1,81 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: flypydzfor932  # 專有的方案標識
+  name: flypydzfor932
+  version: "0.17"
+  author:
+    - 佛振 <chen.sst@gmail.com>
+  description: |
+    智能ABC雙拼+九宫格。
+  dependencies:
+  
+menu:
+  page_size: 10
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+    - lua_translator@date_translator
+    - lua_translator@calculator_translator
+  filters:
+    - simplifier
+#    - simplifier@Homepage
+    - uniquifier
+
+speller:
+  alphabet: 0123456789  # 呃，倒背字母表完全是個人喜好
+  delimiter: " '"  # 隔音符號用「'」；第一位的空白用來自動插入到音節邊界處
+  algebra:  # 拼寫運算規則，這個纔是實現雙拼方案的重點。寫法有很多種，當然也可以把四百多個音節碼一條一條地列舉
+    # 这部分是自然码双拼部分
+    
+translator:
+  dictionary: flypydzfor932
+  enable_charset_filter: false
+  enable_sentence: false
+  enable_completion: true
+  enable_user_dict: false
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+  prism: flypydzfor932    # prism 要以本輸入方案的名稱來命名，以免把朙月拼音的拼寫映射表覆蓋掉
+  # spelling_hints: 3                 # ～字以内候提示编码
+  # max_phrase_length: 3              # 动态生成词的最大长度
+  preedit_format:             # 這段代碼用來將輸入的雙拼碼反轉爲全拼顯示；待見雙拼碼的可以把這段拿掉
+    #
+    
+ascii_composer:
+  import_preset: default
+  switch_key:
+    
+
+simplifier:
+  option_name: Homepage
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+
+    
+

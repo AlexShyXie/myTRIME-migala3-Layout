@@ -480,17 +480,17 @@ preset_keyboards:
 
       #第二行
       - {click: ".", long_click: '*', swipe_up: "/", label_symbol: "* /"}
-      - {click: 4, label: ghi, long_click: Home, key_text_size: 19}
-      - {click: 5, label: jkl, long_click: select_all, key_text_size: 19}
-      - {click: 6, label: mno, long_click: End, key_text_size: 19}
+      - {click: 4, label: ghi, long_click: Home,swipe_up = Home,  key_text_size: 19}
+      - {click: 5, label: jkl, long_click: select_all, swipe_up = select_all, key_text_size: 19}
+      - {click: 6, label: mno, long_click: End, swipe_up = End, key_text_size: 19}
       - {click: x1, long_click: x4,swipe_up: x4, swipe_down: Rightx2, hint: '下划→x2', swipe_left: Clear, key_back_color: bgn, hilited_key_back_color: *color4, label_color: *color1,key_text_color:*color1, key_symbol_color:*color1,comment_text_color:*color1, width: 22}
       - {click: Escape, long_click: Menu, key_back_color: *color4, hilited_key_back_color: *color4, width: 22}
 
       #第三行
       - {click: "?", long_click: '=', swipe_up: '!', swipe_left: '#', swipe_right: '@', label_symbol: "=!@#", key_text_size: 16}
-      - {click: 7, label: prs, long_click: copy, key_text_size: 19}
-      - {click: 8, label: tuv, long_click: paste, key_text_size: 19}
-      - {click: 9, label: xyz, long_click: cut, key_text_size: 19}
+      - {click: 7, label: prs, long_click: copy, swipe_up = copy, key_text_size: 19}
+      - {click: 8, label: tuv, long_click: paste, swipe_up = paste, key_text_size: 19}
+      - {click: 9, label: xyz, long_click: cut, swipe_up = cut, key_text_size: 19}
       - {click: Return, composing: Return1, long_click: Settings, swipe_left: "[", swipe_right: "]", width: 22}
       - {click: '`',label: "反查", long_click: IME_switch, key_back_color: *color8, hilited_key_back_color: *color6, key_text_color: *color2, hilited_key_text_color: *color2, width: 22}
 
@@ -517,37 +517,37 @@ preset_keyboards:
   #  height: 48
     ascii_mode: 1
     keys:
-      - {click: q, long_click: 1, key_back_color: bh1, key_text_color: th1}
-      - {click: w, long_click: 2, key_back_color: bh1, key_text_color: th1}
-      - {click: e, long_click: 3, key_back_color: bh1, key_text_color: th1}
-      - {click: r, long_click: 4, key_back_color: bh1, key_text_color: th1}
-      - {click: t, long_click: 5, width: 14, key_back_color: bh1, key_text_color: th1}
-      - {click: y, long_click: 6, width: 14, key_back_color: bh1, key_text_color: th1}
-      - {click: u, long_click: 7, key_back_color: bh1, key_text_color: th1}
-      - {click: i, long_click: 8, key_back_color: bh1, key_text_color: th1}
-      - {click: o, long_click: 9, key_back_color: bh1, key_text_color: th1}
-      - {click: p, long_click: 0, key_back_color: bh1, key_text_color: th1}
+      - {click: q, long_click: 1, swipe_up: 1, key_back_color: bh1, key_text_color: th1}
+      - {click: w, long_click: 2,swipe_up: 2,  key_back_color: bh1, key_text_color: th1}
+      - {click: e, long_click: 3, swipe_up: 3, key_back_color: bh1, key_text_color: th1}
+      - {click: r, long_click: 4, swipe_up: 4, key_back_color: bh1, key_text_color: th1}
+      - {click: t, long_click: 5, swipe_up: 5, width: 14, key_back_color: bh1, key_text_color: th1}
+      - {click: y, long_click: 6, swipe_up: 6, width: 14, key_back_color: bh1, key_text_color: th1}
+      - {click: u, long_click: 7, swipe_up: 7, key_back_color: bh1, key_text_color: th1}
+      - {click: i, long_click: 8, swipe_up: ８, key_back_color: bh1, key_text_color: th1}
+      - {click: o, long_click: 9, swipe_up: ９, key_back_color: bh1, key_text_color: th1}
+      - {click: p, long_click: 0, swipe_up: ０, key_back_color: bh1, key_text_color: th1}
 
       - {width: 2, key_back_color: bh2, key_text_color: th2}
       - {click: a, long_click: select_all, key_back_color: bh2, key_text_color: th2}
-      - {click: s, long_click: '@', key_back_color: bh2, key_text_color: th2}
-      - {click: d, long_click: '#', key_back_color: bh2, key_text_color: th2}
-      - {click: f, long_click: '$', key_back_color: bh2, key_text_color: th2}
-      - {click: g, long_click: '%',width: 24, swipe_down: "date_time", key_back_color: bh2, key_text_color: th2}
-      - {click: h, long_click: '!', swipe_down: "+", key_back_color: bh2, key_text_color: th2}
-      - {click: j, long_click: '&', swipe_down: "-", key_back_color: bh2, key_text_color: th2}
-      - {click: k, long_click: '*', swipe_down: "_", key_back_color: bh2, key_text_color: th2}
-      - {click: l, long_click: '(){Left}', swipe_down: "=", key_back_color: bh2, key_text_color: th2}
+      - {click: s, long_click: '@', swipe_up = '@', key_back_color: bh2, key_text_color: th2}
+      - {click: d, long_click: '#', swipe_up = '#', key_back_color: bh2, key_text_color: th2}
+      - {click: f, long_click: '$', swipe_up = '$', key_back_color: bh2, key_text_color: th2}
+      - {click: g, long_click: '%',swipe_up = '%', width: 24, swipe_down: "date_time", key_back_color: bh2, key_text_color: th2}
+      - {click: h, long_click: '!', swipe_up = '!', swipe_down: "+", key_back_color: bh2, key_text_color: th2}
+      - {click: j, long_click: '&', swipe_up = '&', swipe_down: "-", key_back_color: bh2, key_text_color: th2}
+      - {click: k, long_click: '*', swipe_up = '*', swipe_down: "_", key_back_color: bh2, key_text_color: th2}
+      - {click: l, swipe_down: "=", key_back_color: bh2, key_text_color: th2}
       - {width: 2, key_back_color: bh2, key_text_color: th2}
 
       - {click: Shift_L, composing: delimiter, width: 13, hilited_key_back_color: benter, key_back_color: bbs, key_text_color: tbs}
-      - {click: z, long_click: '`', swipe_down: '[]{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: x, long_click: cut, swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
-      - {click: c, long_click: copy, swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
-      - {click: v, long_click: paste_clip, width: 20, swipe_down: paste, key_back_color: bh3, key_text_color: th3}
-      - {click: b, long_click: ";", swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
-      - {click: n, long_click: ":", key_back_color: bh3, key_text_color: th3}
-      - {click: m, long_click: '?', swipe_down: "|", key_back_color: bh3, key_text_color: th3}
+      - {click: z, long_click: "`", swipe_down: "[]{Left}",key_back_color: bh3, key_text_color: th3}
+      - {click: x, long_click: cut, swipe_up = cut, swipe_down: '{}{Left}', key_back_color: bh3, key_text_color: th3}
+      - {click: c, long_click: copy, swipe_up = copy, swipe_down: ' ', key_back_color: bh3, key_text_color: th3}
+      - {click: v, long_click: paste_clip,swipe_up = paste_clip ,  width: 20, swipe_down: paste, key_back_color: bh3, key_text_color: th3}
+      - {click: b, long_click: ";", swipe_up = ";", swipe_down: "\\", key_back_color: bh3, key_text_color: th3}
+      - {click: n, long_click: ":", swipe_up = ":", key_back_color: bh3, key_text_color: th3}
+      - {click: m, long_click: "?", swipe_down: "|",key_back_color: bh3, key_text_color: th3}
       - {click: BackSpace, width: 13, key_back_color: bbs, key_text_color: tbs}
 
       - {click: Keyboard_number, long_click: Menu, width: 12.5, key_back_color: bgn, key_text_color: tgn}
